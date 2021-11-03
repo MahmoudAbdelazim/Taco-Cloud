@@ -3,6 +3,7 @@ package tacos;
 import lombok.Data;
 import org.hibernate.validator.constraints.CreditCardNumber;
 
+import javax.persistence.*;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
@@ -11,12 +12,17 @@ import java.util.Date;
 import java.util.List;
 
 @Data
+@Entity
+@Table(name = "Taco_Order")
 public class Order {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private Date placedAt;
 
+    @ManyToMany(targetEntity = Taco.class)
     List<Taco> tacos = new ArrayList<>();
 
     @NotBlank(message = "Name is required")
@@ -46,5 +52,10 @@ public class Order {
 
     public void addDesign(Taco taco) {
         tacos.add(taco);
+    }
+
+    @PrePersist
+    void placedAt() {
+        this.placedAt = new Date();
     }
 }

@@ -1,6 +1,5 @@
 package tacos.web;
 
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,8 +9,8 @@ import tacos.Ingredient;
 import tacos.Ingredient.Type;
 import tacos.Order;
 import tacos.Taco;
-import tacos.data.IngredientRepository;
-import tacos.data.TacoRepository;
+import tacos.data.jpa.IngredientRepository;
+import tacos.data.jpa.TacoRepository;
 
 import javax.validation.Valid;
 import java.util.ArrayList;
@@ -57,27 +56,21 @@ public class DesignTacoController {
     }
 
     @GetMapping
-    public String showDesignForm(Model model) {
+    public String showDesignForm() {
         return "design";
     }
 
     @PostMapping
     private String processDesign(
-            @Valid Taco taco,
-            @ModelAttribute("order") Order order,
-            Errors errors) {
+            @Valid @ModelAttribute("taco") Taco taco,
+            Errors errors,
+            @ModelAttribute("order") Order order) {
 
         if (errors.hasErrors()) {
             return "design";
         }
 
         Taco saved = tacoRepository.save(taco);
-        if (saved == null) {
-            System.out.println("Heeeeeeere");
-        }
-        if (order == null) {
-            System.out.println("Theeeeeeeere");
-        }
         order.addDesign(saved);
         return "redirect:/orders/current";
     }
