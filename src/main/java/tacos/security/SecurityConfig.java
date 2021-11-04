@@ -52,6 +52,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .logout()
                 .logoutSuccessUrl("/")
         ;
+
+        // in order to use h2-console, must be re-enabled upon production
         http.csrf().disable();
         http.headers().frameOptions().disable();
     }

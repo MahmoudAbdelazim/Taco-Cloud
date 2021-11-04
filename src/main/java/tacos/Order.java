@@ -18,6 +18,9 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @ManyToOne
+    private User user;
+
     private Date placedAt;
 
     @ManyToMany(targetEntity = Taco.class)
