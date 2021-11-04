@@ -4,9 +4,7 @@ import lombok.Data;
 import org.hibernate.validator.constraints.CreditCardNumber;
 
 import javax.persistence.*;
-import javax.validation.constraints.Digits;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Pattern;
+import javax.validation.constraints.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -23,7 +21,8 @@ public class Order {
     private Date placedAt;
 
     @ManyToMany(targetEntity = Taco.class)
-    List<Taco> tacos = new ArrayList<>();
+    @NotNull
+    private List<Taco> tacos = new ArrayList<>();
 
     @NotBlank(message = "Name is required")
     private String name;

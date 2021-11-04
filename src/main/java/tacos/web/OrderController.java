@@ -16,7 +16,7 @@ import javax.validation.Valid;
 @SessionAttributes("order")
 public class OrderController {
 
-    private OrderRepository orderRepo;
+    private final OrderRepository orderRepo;
 
     @Autowired
     public OrderController(OrderRepository orderRepo) {
@@ -25,6 +25,10 @@ public class OrderController {
 
     @GetMapping("/current")
     public String orderForm(Model model) {
+        Order order = (Order) model.getAttribute("order");
+        if (order == null || order.getTacos().isEmpty()) {
+            return "redirect:/design";
+        }
         return "orderForm";
     }
 
