@@ -49,4 +49,5 @@ auto-creating REST APIs for the domain classes that have
 data repositories.
 
 
-![image](https://user-images.githubusercontent.com/43009893/146694774-7bbf6c9d-ba1e-4997-9a07-98b9577d9fc0.png)
+![image](https://user-images.githubusercontent.com/43009893/146694818-b56c477e-0874-431b-9ccb-a0f6f1e54ffe.png)
+
