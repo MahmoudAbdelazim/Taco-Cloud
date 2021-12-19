@@ -4,7 +4,7 @@ project that I built as a practice while studying
 the Spring in action book.
 
 
-![image](https://user-images.githubusercontent.com/43009893/146694835-cc323419-9b4d-47f0-9b38-4655f802f770.png)
+![image](https://user-images.githubusercontent.com/43009893/146694835-cc323419-9b4d-47f0-9b38-4655f802f770.png | width=100)
 
 
 ## Features:
