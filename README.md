@@ -3,6 +3,10 @@ This is a fictional taco restaurant online ordering
 project that I built as a practice while studying
 the Spring in action book.
 
+
+![image](https://user-images.githubusercontent.com/43009893/146694835-cc323419-9b4d-47f0-9b38-4655f802f770.png)
+
+
 ## Features:
 - Sign-up and sign-in to the website.
 - Design taco creations from a list of available ingredients.
@@ -20,7 +24,7 @@ Contains all the Web MVC Controllers, with controllers for
 designing and ordering tacos and using Thymeleaf templates as views.
 
 
-![image](https://user-images.githubusercontent.com/43009893/146694700-c1f8ffeb-7108-4a5b-ba94-7a3045fc7f1a.png)
+![image](https://user-images.githubusercontent.com/43009893/146694849-50fea46a-84d7-43b3-b710-0a9c21b6c22e.png)
 
 
 ### 3- Data:
