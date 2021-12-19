@@ -5,8 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
-import tacos.Order;
-import tacos.Taco;
+import tacos.domain.Order;
+import tacos.domain.Taco;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -16,9 +16,9 @@ import java.util.Map;
 @Repository
 public class JdbcOrderRepository {
 
-    private SimpleJdbcInsert orderInserter;
-    private SimpleJdbcInsert orderTacoInserter;
-    private ObjectMapper objectMapper;
+    private final SimpleJdbcInsert orderInserter;
+    private final SimpleJdbcInsert orderTacoInserter;
+    private final ObjectMapper objectMapper;
 
     @Autowired
     public JdbcOrderRepository(JdbcTemplate jdbc) {
@@ -37,7 +37,7 @@ public class JdbcOrderRepository {
         long orderId = saveOrderDetails(order);
         order.setId(orderId);
         List<Taco> tacos = order.getTacos();
-        for (Taco taco: tacos) {
+        for (Taco taco : tacos) {
             saveTacoToOrder(taco, orderId);
         }
         return order;

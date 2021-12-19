@@ -7,14 +7,13 @@ import org.springframework.jdbc.core.PreparedStatementCreatorFactory;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
-import tacos.Ingredient;
-import tacos.Taco;
+import tacos.domain.Ingredient;
+import tacos.domain.Taco;
 
 import java.sql.Timestamp;
 import java.sql.Types;
 import java.util.Arrays;
 import java.util.Date;
-import java.util.Objects;
 
 @Repository
 public class JdbcTacoRepository {

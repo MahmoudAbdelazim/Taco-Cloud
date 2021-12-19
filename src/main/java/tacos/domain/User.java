@@ -1,4 +1,4 @@
-package tacos;
+package tacos.domain;
 
 import lombok.AccessLevel;
 import lombok.Data;

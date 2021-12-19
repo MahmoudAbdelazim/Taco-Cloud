@@ -1,7 +1,6 @@
-package tacos;
+package tacos.domain;
 
 import lombok.Data;
-import org.hibernate.validator.constraints.CreditCardNumber;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;

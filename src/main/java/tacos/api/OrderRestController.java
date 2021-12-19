@@ -1,13 +1,11 @@
-package tacos.web.api;
+package tacos.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import tacos.Order;
+import tacos.domain.Order;
 import tacos.data.jpa.OrderRepository;
-
-import java.util.Optional;
 
 @RestController
 @RequestMapping(value = "/orders", produces = "application/json")
@@ -32,15 +30,17 @@ public class OrderRestController {
         return orderRepo.save(order);
     }
 
-    @PutMapping(path = "/{orderId}", consumes = "application/json")
-    public Order putOrder(@RequestBody Order order) {
+    @PutMapping(path="/{orderId}", consumes="application/json")
+    public Order putOrder(
+            @PathVariable("orderId") Long orderId,
+            @RequestBody Order order) {
+        order.setId(orderId);
         return orderRepo.save(order);
     }
 
     @PatchMapping(path = "/{orderId}", consumes = "application/json")
     public Order patchOrder(@PathVariable("orderId") Long orderId, @RequestBody Order patch) {
-        Optional<Order> optOrder = orderRepo.findById(orderId);
-        Order order = optOrder.get();
+        Order order = orderRepo.findById(orderId).get();
         if (patch.getName() != null) {
             order.setName(patch.getName());
         }
@@ -73,6 +73,7 @@ public class OrderRestController {
     public void deleteOrder(@PathVariable("orderId") Long orderId) {
         try {
             orderRepo.deleteById(orderId);
-        } catch (EmptyResultDataAccessException ignored) {}
+        } catch (EmptyResultDataAccessException ignored) {
+        }
     }
 }
