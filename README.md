@@ -55,3 +55,8 @@ data repositories.
 
 ![image](https://user-images.githubusercontent.com/43009893/146694818-b56c477e-0874-431b-9ccb-a0f6f1e54ffe.png)
 
+
+### 6- REST Cleint:
+Contains client methods that consume the REST APIs created earlier, 
+using RestTemplate for general non-hypermedia created APIs and using Traverson
+for hypermedia-powered APIs, and using both for fetching a URL and updating a resource.
