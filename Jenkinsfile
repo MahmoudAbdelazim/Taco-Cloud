@@ -1,5 +1,5 @@
 pipeline {
-    agent { docker { image 'openjdk:11' } }
+    agent { docker { image 'openjdk:11-windowsservercore' } }
     stages {
         stage ('Checkout') {
             steps {
